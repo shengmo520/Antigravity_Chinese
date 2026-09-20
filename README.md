@@ -41,6 +41,22 @@ Google Antigravity 客户端深度汉化、解包逆向、防崩溃与全生命�
 
 ---
 
+### 鸣谢与项目演进 (Acknowledgements & Evolution)
+
+本项目源起并深度二次开发自开源项目 [renkeshui/antigravity-chinese-locale](https://github.com/renkeshui/antigravity-chinese-locale)。在此向原作者优秀的初始架构与探索致敬！
+
+作为持续维护的深度增强版，**Antigravity_Chinese** 带来了如下核心演进与差异化升级：
+
+| 维度 | 上游原版 | 本仓库 (Antigravity_Chinese 增强版) |
+| :--- | :--- | :--- |
+| **词库与规则量级** | ~420 条 | **880+ 精准词条与 142 条动态正则（覆盖翻倍）** |
+| **原生快捷键体验** | 部分剥离或缺失 | **智能保留并对齐原生 `opacity-50` 半透明样式** |
+| **复杂交互深度覆盖** | 基础菜单与常规设置 | **深度补全撤销确认、文件回滚、动态错误提示、MCP 说明与插件提示** |
+| **智能体技能完整度** | 依赖外部路径脚本 | **`skills/Chinesizing` 内置完整闭环词库与引擎，即拷即用** |
+| **安装器沙箱机制** | 基础打包部署 | **退出时自动安全清理临时 asar 与 CDP 脚本沙箱，零垃圾残留** |
+
+---
+
 ### 目录结构
 
 ```text
@@ -115,6 +131,10 @@ git clone https://github.com/shengmo520/Antigravity_Chinese.git
 cd Antigravity_Chinese
 python scripts/deploy_chinese.py
 ```
+
+### Acknowledgements & Evolution
+
+This project is deeply enhanced from and builds upon [renkeshui/antigravity-chinese-locale](https://github.com/renkeshui/antigravity-chinese-locale). Sincere appreciation to the original author for pioneering the initial foundation!
 
 ---
 
