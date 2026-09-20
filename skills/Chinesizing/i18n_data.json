@@ -775,7 +775,7 @@
         "Open in Preview Pane": "在预览面板中打开",
         "Open in Preview Tab": "在预览标签页中打开",
         "Open with External Browser": "使用外部浏览器打开",
-        "Revert file changes": "还原文件更改",
+        "Revert file changes": "还原文件修改",
         "Review Policy": "审查策略",
         "Proceed with Plan": "继续执行计划",
         "Always Allow": "始终允许",
@@ -837,7 +837,55 @@
         "Cancel ⌃C": "取消 ⌃C",
         "发送消息 (Enter)": "发送消息 Enter",
         "排队发送消息 (Enter)": "排队发送消息 Enter",
-        "立即发送 (Alt+Enter)": "立即发送 Alt+Enter"
+        "立即发送 (Alt+Enter)": "立即发送 Alt+Enter",
+        "Install Antigravity IDE to run and edit your workspace scripts.": "安装 Antigravity IDE 以运行和编辑您的工作区脚本。",
+        "Install Antigravity IDE to run and edit your workspace scripts": "安装 Antigravity IDE 以运行和编辑您的工作区脚本",
+        "Install Antigravity IDE": "安装 Antigravity IDE",
+        "Install Antigravity IDE extension": "安装 Antigravity IDE 扩展",
+        "Open MCP Config": "打开 MCP 配置",
+        "Open MCP config": "打开 MCP 配置",
+        "open mcp config": "打开 MCP 配置",
+        "Open MCP Configuration": "打开 MCP 配置",
+        "Open MCP configuration": "打开 MCP 配置",
+        "Use Add MCP to browse the store, or add a custom server via the MCP config.": "使用“添加 MCP”浏览商店，或通过 MCP 配置文件添加自定义服务器。",
+        "Use Add MCP to browse the store, or add a custom server via the MCP config": "使用“添加 MCP”浏览商店，或通过 MCP 配置文件添加自定义服务器",
+        "MCP Config": "MCP 配置",
+        "MCP config": "MCP 配置",
+        "Add a custom server via the MCP config.": "通过 MCP 配置文件添加自定义服务器。",
+        "add a custom server via the MCP config.": "通过 MCP 配置文件添加自定义服务器。",
+        "Add a custom server via the MCP config": "通过 MCP 配置文件添加自定义服务器",
+        "add a custom server via the MCP config": "通过 MCP 配置文件添加自定义服务器",
+        "Custom MCP server": "自定义 MCP 服务器",
+        "Custom MCP Server": "自定义 MCP 服务器",
+        "Add Custom Server": "添加自定义服务器",
+        "Add custom server": "添加自定义服务器",
+        "Edit MCP Config": "编辑 MCP 配置",
+        "Edit MCP config": "编辑 MCP 配置",
+        "Reload MCP servers": "重新加载 MCP 服务器",
+        "Restart MCP servers": "重启 MCP 服务器",
+        "Confirm Undo": "确认撤销",
+        "This undo action will not make any code changes.": "此撤销操作不会对代码进行任何修改。",
+        "This undo action will not make any code changes": "此撤销操作不会对代码进行任何修改",
+        "Confirming this undo action will make the following changes:": "确认此撤销操作将进行以下更改：",
+        "Confirming this undo action will make the following changes": "确认此撤销操作将进行以下更改",
+        "Undo restores your entire workspace to its state at this point.": "撤销将把您的整个工作区恢复到此时间点的状态。",
+        "Undo restores your entire workspace to its state at this point": "撤销将把您的整个工作区恢复到此时间点的状态",
+        "Only the conversation will be rewound; your files will be left as-is.": "仅对话内容会被回退；您的文件将保持原样。",
+        "Only the conversation will be rewound; your files will be left as-is": "仅对话内容会被回退；您的文件将保持原样",
+        "The files below were changed by the agent and will be reverted, but other files may also be affected if your workspace changed for other reasons (e.g. a sync) in the meantime.": "以下文件由智能体修改并将被还原，但若您的工作区在此期间因其他原因（如同步）发生变化，其他文件也可能会受到影响。",
+        "The files below were changed by the agent and will be reverted, but other files may also be affected if your workspace changed for other reasons (e.g. a sync) in the meantime": "以下文件由智能体修改并将被还原，但若您的工作区在此期间因其他原因（如同步）发生变化，其他文件也可能会受到影响",
+        "The agent made no code changes, but other files may still be affected if your workspace changed for other reasons (e.g. a sync) in the meantime.": "智能体未对代码进行任何修改，但若您的工作区在此期间因其他原因（如同步）发生变化，其他文件仍可能会受到影响。",
+        "The agent made no code changes, but other files may still be affected if your workspace changed for other reasons (e.g. a sync) in the meantime": "智能体未对代码进行任何修改，但若您的工作区在此期间因其他原因（如同步）发生变化，其他文件仍可能会受到影响",
+        "View Diff": "查看差异",
+        "Revert and redo turn, best of N:": "还原并重做当前轮次，N 次最佳：",
+        "Confirm Browser Interaction": "确认浏览器交互",
+        "Confirm Selection": "确认选择",
+        "Toggle if a confirmation is shown when using the \"Reload Window\" button.": "切换在使用“重新加载窗口”按钮时是否显示确认提示。",
+        "Enable Demo Mode (Beta)": "启用演示模式 (测试版)",
+        "Confirm the command is safe to run outside of the sandbox with full network and disk access.": "确认该命令在沙箱外运行安全，具有完整的网络和磁盘访问权限。",
+        "Sign out of this server?": "退出登录此服务器？",
+        "Are you sure you want to delete this handler?": "您确定要删除此处理器吗？",
+        "Are you sure you want to delete this hook card?": "您确定要删除此钩子卡片吗？"
     },
     "reverse_map": {
         "否": "No",
@@ -904,36 +952,36 @@
     },
     "regex_rules": [
         {
-            "pattern": "^(?:Send message|发送消息)\\s*\\(?(Enter)\\)?$",
-            "replacement": "发送消息 "
+            "pattern": "^(?:Send [Mm]essage|发送消息)\\s*\\(?([A-Za-z0-9+⌃⌥⇧⌘]+)\\)?$",
+            "replacement": "发送消息 $1"
         },
         {
-            "pattern": "^(?:Queue message|排队发送消息)\\s*\\(?(Enter)\\)?$",
-            "replacement": "排队发送消息 "
+            "pattern": "^(?:Queue [Mm]essage|排队发送消息)\\s*\\(?([A-Za-z0-9+⌥⇧⌘]+)\\)?$",
+            "replacement": "排队发送消息 $1"
         },
         {
-            "pattern": "^(?:Send immediately|立即发送)\\s*\\(?(Alt\\+Enter)\\)?$",
-            "replacement": "立即发送 "
+            "pattern": "^(?:Send [Ii]mmediately|立即发送)\\s*\\(?([A-Za-z0-9+⌃⌥⇧⌘]+)\\)?$",
+            "replacement": "立即发送 $1"
         },
         {
-            "pattern": "^(?:Cancel|取消)\\s*\\(?(Ctrl\\+[DC]|⌃C)\\)?$",
-            "replacement": "取消 "
+            "pattern": "^(?:Cancel|取消)\\s*\\(?([A-Za-z0-9+⌃⌥⇧⌘]+)\\)?$",
+            "replacement": "取消 $1"
         },
         {
             "pattern": "^(.*?)\\s*\\(Thinking\\)$",
-            "replacement": " (思考)"
+            "replacement": "$1 (思考)"
         },
         {
             "pattern": "^(.*?)\\s*\\(Medium\\)$",
-            "replacement": " (中)"
+            "replacement": "$1 (中)"
         },
         {
             "pattern": "^(.*?)\\s*\\(High\\)$",
-            "replacement": " (高)"
+            "replacement": "$1 (高)"
         },
         {
             "pattern": "^(.*?)\\s*\\(Low\\)$",
-            "replacement": " (低)"
+            "replacement": "$1 (低)"
         },
         {
             "pattern": "^\\(Thinking\\)$",

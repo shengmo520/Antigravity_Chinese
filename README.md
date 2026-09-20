@@ -20,7 +20,8 @@ Google Antigravity 客户端深度汉化、解包逆向、防崩溃与全生命�
 
 ### 核心特性 (v2.0 重大突破)
 
-- 🌐 **全界面深度覆盖（424+ 精准词条）**：覆盖系统设置所有子页面、应用偏好、外观主题、模型与用量面板、MCP 服务管理、项目设置、会话历史列表以及顶部原生窗口菜单。
+- 🌐 **全界面深度覆盖（880+ 精准词条与 140+ 动态正则规则）**：覆盖系统设置所有子页面、应用偏好、外观主题、模型与用量面板、MCP 服务管理、项目设置、撤销与回滚对话框、会话历史列表以及顶部原生窗口菜单。
+- ⌨️ **原生快捷键智能对齐**：智能识别菜单与弹窗中的快捷键组合，采用匹配原生设计系统的半透明（`opacity-50`）样式优雅展示，杜绝生硬剔除。
 - 🔄 **全生命周期守卫（彻底攻克“重启/刷新失效”难题）**：
   - 在主进程注册 `app.on('web-contents-created')` 全局生命周期拦截网，全面监听 `dom-ready`、`did-finish-load` 与 `did-navigate-in-page`；
   - 在 `showOrCreateWindow` 唤醒链路中加入补救执行，保证从系统托盘唤醒时即刻保持汉化。
@@ -100,7 +101,8 @@ Antigravity_Chinese/
 **Antigravity_Chinese (Chinesizing)** is an enterprise-grade Chinese localization package and autonomous engineering skill designed specifically for Google Antigravity. It resolves startup crashes (`SyntaxError`), dropdown freezes caused by `characterData` microtask loops and Base UI key mismatch, tooltip flashing, and translation loss upon app reboot.
 
 ### Features
-- **424+ Dictionary Entries & Dynamic Patterns**: Complete coverage across all Settings tabs, Models, Quotas, History, and Native Menus.
+- **880+ Dictionary Entries & 140+ Dynamic Patterns**: Complete coverage across all Settings tabs, Models, Quotas, History, Undo/Revert dialogues, and Native Menus.
+- **Native Keyboard Shortcut Styling**: Intelligently parses shortcut combinations and formats them with subtle `opacity-50` inline styling matching the native design system.
 - **Full-Lifecycle WebContents Guard**: Hooks into `app.on('web-contents-created')` to keep localization persistent across refreshes, reboots, and new windows.
 - **Value-Matching Self-Healing**: Resilient against React SPA route transitions and re-renders without memory leaks.
 - **Bidirectional Map Bridge**: Seamlessly reverse-maps localized strings back to English keys for Base UI / Radix UI dropdowns.

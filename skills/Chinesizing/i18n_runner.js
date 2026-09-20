@@ -287,6 +287,14 @@
             return leadR + transReset + trailR;
         }
 
+        // 2.75 Undo action error message
+        if (/^There was an error determining the code changes that this undo action will make:\s*/i.test(trimmed)) {
+            var transErr = trimmed.replace(/^There was an error determining the code changes that this undo action will make:\s*/i, "确定此撤销操作将导致的代码更改时出错：");
+            var leadU = original.match(/^\s*/)[0];
+            var trailU = original.match(/\s*$/)[0];
+            return leadU + transErr + trailU;
+        }
+
         // 3. Regex dynamic rules
         for (var i = 0; i < regexList.length; i++) {
             if (regexList[i].re.test(trimmed)) {
@@ -508,6 +516,50 @@
         }
     }
 
+    var SHORTCUT_TOOLTIP_REGEX = /^(.*?)\s*\(?((?:(?:Ctrl|Alt|Shift|[⌃⌥⇧⌘])[+\s0-9A-Za-z,]+)|Enter|Tab|Esc)\)?$/i;
+
+    function formatTooltipElement(el) {
+        if (!el || el.nodeType !== 1) return;
+        if (el.classList.contains("opacity-50") || el.querySelector(".opacity-50") || el.closest(".opacity-50")) return;
+
+        var getTrans = window.__antigravity_getTranslatedText || getTranslatedText;
+
+        var childDivs = el.querySelectorAll("div");
+        if (childDivs.length > 0) {
+            var anyFormatted = false;
+            for (var i = 0; i < childDivs.length; i++) {
+                var d = childDivs[i];
+                if (d.querySelector(".opacity-50") || d.classList.contains("opacity-50")) continue;
+                if (d.children.length === 0 || Array.prototype.every.call(d.childNodes, function(n) { return n.nodeType === 3; })) {
+                    var raw = d.textContent.trim();
+                    var trans = getTrans(raw) || raw;
+                    var m = SHORTCUT_TOOLTIP_REGEX.exec(trans);
+                    if (m) {
+                        var act = m[1].trim();
+                        var key = m[2].trim();
+                        var actTrans = getTrans(act) || act;
+                        d.innerHTML = '<span>' + actTrans + '</span><span class="ml-1 opacity-50">' + key + '</span>';
+                        anyFormatted = true;
+                    }
+                }
+            }
+            if (anyFormatted) return;
+        }
+
+        if (childDivs.length === 0) {
+            var rawText = el.textContent.trim();
+            var transSingle = getTrans(rawText) || rawText;
+            var match = SHORTCUT_TOOLTIP_REGEX.exec(transSingle);
+            if (match) {
+                var action = match[1].trim();
+                var shortcutKey = match[2].trim();
+                var actionTrans = getTrans(action) || action;
+                el.innerHTML = '<span>' + actionTrans + '</span><span class="ml-1 opacity-50">' + shortcutKey + '</span>';
+            }
+        }
+    }
+    window.__antigravity_formatTooltipElement = formatTooltipElement;
+
     function translateSubtree(root) {
         if (!root) return;
         if (root.nodeType === 3) {
@@ -528,6 +580,14 @@
                     translateElementAttributes(elementsWithAttrs[i]);
                 }
             }
+            if (root.matches && root.matches('.compact-tooltip, [role="tooltip"], .react-tooltip')) {
+                formatTooltipElement(root);
+            } else if (root.childElementCount > 0) {
+                var tts = root.querySelectorAll('.compact-tooltip, [role="tooltip"], .react-tooltip');
+                for (var t = 0; t < tts.length; t++) {
+                    formatTooltipElement(tts[t]);
+                }
+            }
         }
     }
 
@@ -539,6 +599,7 @@
         }
     }
     window.__antigravity_translateWholePage = translateWholePage;
+    window.__antigravity_translateSubtree = translateSubtree;
 
     translateWholePage();
 
@@ -577,9 +638,10 @@
                 translateElementAttributes(e.target.parentElement);
             }
             // Rapid tooltip scanner: immediately translate any active tooltip container in portals
-            var tooltips = document.querySelectorAll('.compact-tooltip, [role="tooltip"]');
+            var tooltips = document.querySelectorAll('.compact-tooltip, [role="tooltip"], .react-tooltip');
             for (var i = 0; i < tooltips.length; i++) {
                 translateSubtree(tooltips[i]);
+                formatTooltipElement(tooltips[i]);
             }
         }
     }, true);
@@ -600,6 +662,10 @@
                 if (m.type === "childList") {
                     for (var j = 0; j < m.addedNodes.length; j++) {
                         translateSubtree(m.addedNodes[j]);
+                    }
+                    var activeTooltips = document.querySelectorAll('.compact-tooltip, [role="tooltip"], .react-tooltip');
+                    for (var at = 0; at < activeTooltips.length; at++) {
+                        formatTooltipElement(activeTooltips[at]);
                     }
                 } else if (m.type === "attributes") {
                     translateElementAttributes(m.target);

@@ -108,6 +108,9 @@ def main():
         sys.exit(1)
 
     work_dir = tempfile.mkdtemp(prefix="antigravity_i18n_")
+    temp_pack = None
+    temp_unpacked = None
+    eval_file = None
     try:
         print("[*] Extracting app.asar into temporary sandbox...")
         subprocess.run(f'npx --yes @electron/asar extract "{target_asar}" "{work_dir}"', shell=True, check=True)
@@ -274,6 +277,18 @@ def main():
 
     finally:
         shutil.rmtree(work_dir, ignore_errors=True)
+        if temp_pack and os.path.exists(temp_pack):
+            try:
+                os.remove(temp_pack)
+            except Exception:
+                pass
+        if temp_unpacked and os.path.exists(temp_unpacked):
+            shutil.rmtree(temp_unpacked, ignore_errors=True)
+        if eval_file and os.path.exists(eval_file):
+            try:
+                os.remove(eval_file)
+            except Exception:
+                pass
 
 if __name__ == "__main__":
     main()
